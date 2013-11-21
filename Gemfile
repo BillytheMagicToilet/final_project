@@ -9,7 +9,6 @@ gem 'sqlite3'
 
 
 group :test do
-  # gem 'pry-debugger'
   gem 'jazz_hands'
   gem 'cucumber-rails'
   gem 'cucumber-rails-training-wheels'
