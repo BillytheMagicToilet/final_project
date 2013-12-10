@@ -7,11 +7,14 @@ gem 'rails', '3.1.0'
 
 gem 'sqlite3'
 
+gem 'bcrypt-ruby'
+
 
 group :test do
   gem 'jazz_hands'
   gem 'cucumber-rails'
   gem 'cucumber-rails-training-wheels'
+  gem 'database_cleaner'
 end
 
 
