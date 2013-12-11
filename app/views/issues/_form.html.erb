@@ -10,6 +10,10 @@
       </ul>
     </div>
   <% end %>
+  <div class="field">
+    <%= f.label :user_id %><br />
+    <%= f.collection_select(:issue, :user_id, User.all, :id, :first_name) %><br />
+  </div>
 
   <div class="field">
     <%= f.label :title %><br />
