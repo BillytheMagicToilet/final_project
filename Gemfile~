@@ -9,7 +9,7 @@ gem 'sqlite3'
 
 gem 'bcrypt-ruby'
 
-#gem 'foreigner'
+gem 'foreigner'
 
 group :test do
   gem 'jazz_hands'
