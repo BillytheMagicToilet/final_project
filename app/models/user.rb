@@ -2,6 +2,9 @@ require 'bcrypt'
 
 class User < ActiveRecord::Base
 	
+	has_many :votes, :through => :issues
+	has_many :created_issues, :foreign_key => "user_id", :class_name => "Issue"
+
 	attr_accessor :new_password, :new_password_confirmation
 
 	validates_confirmation_of :new_password, :if=>:password_changed?
