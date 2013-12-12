@@ -7,14 +7,17 @@ gem 'rails', '3.1.0'
 
 gem 'sqlite3'
 
-gem 'bcrypt-ruby'
+gem 'devise'
 
+
+gem 'validates_timeliness'
+ 
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'rails_layout'
 end
 
-#gem 'foreigner'
 
 group :test do
   gem 'jazz_hands'

@@ -8,7 +8,19 @@
 </head>
 <body>
 
-<%= yield %>
+	<div class="container">
+
+		<header class="header">
+			<%= render :header %>
+		</div>
+
+		<%= yield %>
+
+		<footer class="footer">
+			<%= render :footer %>
+		</footer>
+
+	</div> <!-- /container -->
 
 </body>
 </html>
