@@ -1,9 +1,13 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.2.16'
- 
+
+
 group :assets do
-  gem 'sass-rails',   '~> 3.2.6'
+  # gem 'sass-rails',   '~> 3.2.6'
+  gem 'therubyracer'
+  gem 'jquery-rails' 
+  gem 'less-rails-bootstrap'
   gem 'coffee-rails', '~> 3.2.2'
   gem 'uglifier',     '>= 1.0.3'
 end
