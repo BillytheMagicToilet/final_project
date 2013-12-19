@@ -8,7 +8,9 @@ DoSomthIn::Application.routes.draw do
 
   resources :issues
 
-  resources :users
+  get 'user/dashboard' => 'users#dashboard', :as => :dashboard
+
+  resources :comments
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
