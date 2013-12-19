@@ -17,6 +17,8 @@ end
 
 gem 'sqlite3'
 
+gem 'nokogiri', '1.6.0'
+
 gem 'devise'
 
 
