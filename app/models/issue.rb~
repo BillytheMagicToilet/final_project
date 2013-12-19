@@ -27,7 +27,11 @@ class Issue < ActiveRecord::Base
 		result = 0.0
 		votes.each do |v| 
 			diff = TimeDifference.between(v.created_at, Time.now).in_minutes
-			result += 1.0/diff
+			if diff = 0.0
+				result += 1.0
+			else
+				result += 1.0/diff
+			end
 		end
 
 		return result
