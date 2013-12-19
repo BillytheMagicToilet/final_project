@@ -1,5 +1,5 @@
 class Issue < ActiveRecord::Base
-	validates_presence_of :title, :description, :goal
+	validates_prescence_of :title, :description, :goal
 	belongs_to :user
 	has_many :votes
 	def self.Trending

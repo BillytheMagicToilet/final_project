@@ -1,0 +1,7 @@
+require 'spec_helper'
+
+describe User do
+  it "exists" do
+    @user.should be_an_instance_of User
+  end
+end
