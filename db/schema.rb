@@ -30,9 +30,9 @@ ActiveRecord::Schema.define(:version => 20131219014513) do
     t.string   "location"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "hashed_password"
+    t.string   "password"
     t.datetime "last_login"
-    t.string   "salt"
+    t.string   "interests"
     t.string   "encrypted_password",     :default => "", :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
