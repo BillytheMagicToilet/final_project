@@ -6,7 +6,7 @@ DoSomthIn::Application.initialize!
 
 ActionMailer::Base.delivery_method = :smtp
 
-ActionMailer::Base.default_options = {content_type: "text/html"}
+ActionMailer::Base.default :content_type => "text/html"
 
 ActionMailer::Base.smtp_settings =
 {
