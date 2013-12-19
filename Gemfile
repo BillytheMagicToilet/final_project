@@ -21,7 +21,9 @@ gem 'nokogiri', '1.6.0'
 
 gem 'devise'
 
-gem 'time_difference'
+gem 'acts_as_commentable_with_threading'
+
+gem 'opinio'
 
 gem 'validates_timeliness'
  

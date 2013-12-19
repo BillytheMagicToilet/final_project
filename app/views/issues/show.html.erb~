@@ -1,13 +1,12 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Title:</b>
-  <%= @issue.title %>
+  <h1><%= @issue.title %>
 </p>
 
-  <b>Author:</b>
-  <%= @issue.owner_name %>
+  By: <%= @issue.owner_name %>
 </p>
+
 
   <b>Description:</b>
   <%= @issue.description %>
