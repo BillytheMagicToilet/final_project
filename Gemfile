@@ -40,6 +40,8 @@ group :test do
   gem 'cucumber-rails-training-wheels'
   gem 'database_cleaner'
   gem 'rspec-rails'
+  gem "factory_girl_rails", "~> 3.2"
+  gem 'faker'
 end
 
 gem 'jquery-rails'
