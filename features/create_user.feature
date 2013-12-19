@@ -15,5 +15,5 @@ Scenario: create a new account
 		And I fill in "bday" with "1-Jan-1900"
 		And I fill in "location" with "Boonies"
 		And I fill in "password" with "1234567890"
-		And I press "submit"
+		And I click on the "submit" button
 	Then I should see "User was successfully created."

@@ -9,5 +9,5 @@ Scenario:
 		And I have a user account
 	When I fill in "email" with "rob.banks@yahoo.com
 		And I fill in "password" with "1234567890"
-		And I press "Sign In"
+		And I click on the "Sign In" button
 	Then I should see my dashboard

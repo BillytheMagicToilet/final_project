@@ -9,9 +9,9 @@ Background: user is on the new user page
 	Given I am on the new user page
 
 Scenario: create a new account
-	When I fill in "first_name" with "Rob"
-		And I fill in "last_name" with "Banks"
-		And I fill in "email" with "rob.banks@yahoo.com"
+	When I fill in "first_name" with "John"
+		And I fill in "last_name" with "Doe"
+		And I fill in "email" with "John.Doe@yahoo.com"
 		And I fill in "bday" with "1-Jan-1900"
 		And I fill in "location" with "Boonies"
 		And I fill in "password" with "1234567890"

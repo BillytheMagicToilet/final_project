@@ -10,5 +10,5 @@ Background:
 		And the title of the issue is "Alpha"
 Scenario:
 	When I fill in "Comment" with "Delta"
-		And I press "Submit"
+		And I click on the "Submit" button
 	Then I should see my new comment
