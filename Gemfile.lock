@@ -254,6 +254,7 @@ DEPENDENCIES
   jazz_hands
   jquery-rails
   less-rails-bootstrap
+  nokogiri (= 1.6.0)
   opinio
   rails (= 3.2.16)
   rails_layout

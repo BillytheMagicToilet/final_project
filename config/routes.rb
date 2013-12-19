@@ -1,14 +1,13 @@
 DoSomthIn::Application.routes.draw do
-  
-  resources :comments
 
+  devise_for :user
 
   root :to => 'application#index'
 
   resources :application
 
   resources :issues
-  
+
   resources :users
 
   # The priority is based upon order of creation:
