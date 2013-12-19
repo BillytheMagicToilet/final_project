@@ -8,9 +8,12 @@
 # 4. Never think about it again!
 
 class ApplicationController < ActionController::Base
-  protect_from_forgery
 
-  def index
-    @issue = Issue.find(User.all).limit()
-  end    
+	layout 'application'
+
+
+	def index
+		
+	end
+
 end
