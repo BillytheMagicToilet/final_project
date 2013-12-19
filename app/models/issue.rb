@@ -12,6 +12,14 @@ class Issue < ActiveRecord::Base
 		return valued.map{|i| i[0]}
 	end
 
+  def self.New
+    return Issue.order(:created_at)
+  end
+
+  def self.Top
+    return Issue.order(:votes_count)
+  end
+
 	def trending_heuristic
 		result = 0
 		votes.each do |v| 
@@ -21,7 +29,7 @@ class Issue < ActiveRecord::Base
 
 		return result
 	end
-  
+
   def owner_name
     u = User.find(user_id)
     "#{u.first_name} #{u.last_name}"
