@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
 
 
 	def index
-		
+		render 'issues/index'
 	end
 
 end

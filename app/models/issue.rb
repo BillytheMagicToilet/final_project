@@ -15,26 +15,42 @@ class Issue < ActiveRecord::Base
 		return valued.map{|i| i[0]}
 	end
 
-  	def self.New
-    		return Issue.order(:created_at)
-  	end
-
-  	def self.Top
-    		return Issue.order(:votes_count)
-  	end
-
-	def trending_heuristic
-		result = 0.0
-		votes.each do |v| 
-			diff = TimeDifference.between(v.created_at, Time.now).in_minutes
-			result += 1.0/diff
-		end
-
-		return result
-	end
-
-  	def owner_name
-    u = User.find(user_id)
-    "#{u.first_name} #{u.last_name}"
+  def self.New
+    return Issue.order(:created_at)
   end
+
+  def self.Top
+    return Issue.order(:votes_count)
+  end
+
+  def trending_heuristic
+    result = 0.0
+    votes.each do |v| 
+     diff = TimeDifference.between(v.created_at, Time.now).in_minutes
+     result += 1.0/diff
+   end
+
+   return result
+  end
+
+  def owner_name
+    "#{user.first_name} #{user.last_name}"
+  end
+
+  def up_votes
+    return votes.where(vote_type:Vote::TYPES[:up_vote])
+  end
+
+  def up_vote_count
+    return up_votes.count
+  end
+
+  def down_votes
+    return votes.where(vote_type:Vote::TYPES[:down_vote])
+  end
+
+  def down_vote_count
+    return down_votes.count
+  end
+
 end

@@ -1,6 +1,5 @@
 @import "custom_bootstrap/custom_bootstrap.less";
 
-body { padding-top:30px; }
 .form-control { margin-bottom: 10px; }
 
 
@@ -59,9 +58,26 @@ body { padding-top:30px; }
 	margin-bottom: 15px;
 }
 
+#new-issue-nav-button
+{
+	height: 45px;
+
+	h3
+	{
+		margin: 0;
+
+		.glyphicon
+		{
+			font-weight: bold;
+			font-size: 30px;
+		}
+	}
+}
+
 #notifications
 {
 	position:absolute;
 	width: 100%;
 	text-align: center;
+	z-index:10;
 }

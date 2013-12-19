@@ -2,7 +2,7 @@ DoSomthIn::Application.routes.draw do
 
   devise_for :user
 
-  root :to => 'application#index'
+  root :to => 'issues#index'
 
   resources :application
 

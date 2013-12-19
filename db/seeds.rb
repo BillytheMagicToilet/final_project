@@ -13,4 +13,6 @@ FactoryGirl.create(:issue_with_votes)
 
 FactoryGirl.create(:issue_with_votes)
 
-FactoryGirl.create(:issue_with_votes)
+ issues = Issue.where(:user == nil)
+
+ issues.each {|i| i.user = User.all.sample; i.save }
