@@ -1,0 +1,52 @@
+<h1>Editing user</h1>
+
+<% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name %>
+  </div>
+  <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :bday %><br />
+    <%= f.date_select :bday %>
+  </div>
+  <div class="field">
+    <%= f.label :location %><br />
+    <%= f.text_field :location %>
+  </div>
+  <div class="field">
+    <%= f.label :interests %><br />
+    <%= f.text_field :interests %>
+  </div>
+  <div>
+    <%= f.label :new_password %><br />
+    <%= f.password_field :new_password %>
+  </div>
+  <div>
+    <%= f.label :new_password_confirmation %><br />
+    <%= f.password_field :new_password_confirmation %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<%= link_to 'Show', @user %> |
+<%= link_to 'Back', users_path %>
