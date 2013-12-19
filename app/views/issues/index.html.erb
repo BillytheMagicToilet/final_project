@@ -32,53 +32,53 @@
           class="img-rounded img-responsive" />
         </div> -->
         <div class="col-md-12 section-box">
-          
-          <h2>
-            <%= link_to issue.title, issue %>
-          </h2>
 
-          <div class="issue-meta"><small>By: <%= issue.owner_name %> Posted: <%= issue.created_at %></small></div>
+          <div class="h2"><%= link_to issue.title, issue %>
+          <small class="issue-meta pull-right">By: <%= issue.owner_name %> Posted: <%= issue.created_at %></small>
+          </div>
           
-          <p><%= truncate(issue.goal, length:50) { link_to "More", issue } %></p>
+          <p class="issue-excerpt text-primary"><b>Goal: </b><%= truncate(issue.goal, length:100) %></p>
+          <p class="issue-excerpt"><%= truncate(issue.description, length:250) { link_to "More", issue } %></p>
           
           <hr />
-          <div class="row rating-desc">
-           
-            <div class="col-md-6">
 
-              <h5>Yay Votes</h5>
+          <div class="deep-well">
+            <div class="rating-desc">
 
-              <div class="row">
-                
-                <div class="progress col-md-9"><% up_percentage = up_vote_percentage(issue) %>
+              <div class="col-md-6">
+
+                <h5>Yay Votes</h5>
+
+                <div class="col-md-9"><div class="progress"><% up_percentage = up_vote_percentage(issue) %>
                   <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<%= up_percentage %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= up_percentage %>%">
                     <span class="sr-only"><%= up_percentage %>% Yay Votes</span>
                   </div>
-                </div>
-                
+                </div></div>
+
                 <div class="col-md-3">
                   <%= up_percentage %>% Yay <small>(<%= issue.up_vote_count %>)</small>
                 </div>
 
-            </div>
+              </div>
 
-            <div class="col-md-6">
-            
-              <h5>Nay Votes</h5>
+              <div class="col-md-6">
 
-              <div class="row">
-                
-                <div class="progress col-md-9"><% down_percentage = down_vote_percentage(issue) %>
+                <h5>Nay Votes</h5>
+
+                <div class="col-md-9"><div class="progress"><% down_percentage = down_vote_percentage(issue) %>
                   <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="<%= down_percentage %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= down_percentage %>%">
                     <span class="sr-only"><%= down_percentage %>% Nay Votes</span>
                   </div>
-                </div>
-                
+                </div></div>
+
                 <div class="col-md-3">
                   <%= down_percentage %>% Nay <small>(<%= issue.down_vote_count %>)</small>
                 </div>
 
+              </div>
             </div>
+            
+            <div class="clearfix"></div>
 
           </div>
         </div>
