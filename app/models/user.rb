@@ -11,6 +11,10 @@ class User < ActiveRecord::Base
 
 	before_save :hash_new_password, :if=>:password_changed?
 
+
+		
+		
+
 	def password_changed?
 		!@new_password.blank?
 	end
