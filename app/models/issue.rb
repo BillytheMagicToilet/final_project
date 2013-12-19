@@ -23,7 +23,7 @@ class Issue < ActiveRecord::Base
 	def trending_heuristic
 		result = 0
 		votes.each do |v| 
-			diff = TimeDifference.between(:created_at, Time.now).in_hours
+			diff = TimeDifference.between(created_at, Time.now).in_hours
 			result += 1.0/diff
 		end
 
