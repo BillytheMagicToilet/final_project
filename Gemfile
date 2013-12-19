@@ -36,6 +36,7 @@ end
 
 group :test do
   gem 'jazz_hands'
+  gem 'capybara'
   gem 'cucumber-rails'
   gem 'cucumber-rails-training-wheels'
   gem 'database_cleaner'
