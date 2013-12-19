@@ -1,12 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Title:</b>
-  <%= @issue.title %>
+  <h1><%= @issue.title %>
 </p>
 
-  <b>Author:</b>
-  <%= @issue.owner_name %>
+  By: <%= @issue.owner_name %>
 </p>
 
 
@@ -19,6 +17,8 @@
   <%= @issue.goal %>
 </p>
 
+<p>
+  <b>Comments:</b>
 
 <%= link_to 'Edit', edit_issue_path(@issue) %> |
 <%= link_to 'Back', issues_path %>

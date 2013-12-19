@@ -1,21 +1,29 @@
 require 'bcrypt'
 
 class User < ActiveRecord::Base
-	
+	validates_presence_of :first_name, :last_name, :email, :bday
 	has_many :votes, :through => :issues
 	has_many :created_issues, :foreign_key => "user_id", :class_name => "Issue"
 
-	attr_accessor :new_password, :new_password_confirmation
+	attr_accessor :password
 
-	validates_confirmation_of :new_password, :if=>:password_changed?
-	validates :interests, :allow_blank
+	attr_accessible :first_name, :last_name, :email, :bday, :location, :password, :password_confirmation
 
-	before_save :hash_new_password, :if=>:password_changed?
+	EMAIL_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
 
+        validates :first_name, :last_name, :email, :bday, :location, :presence => true
+
+        validates :email, :uniqueness => true, :format => EMAIL_REGEX
+
+        validates_datetime :bday
+
+        validates_datetime :last_login, allow_nil: true
+
+        validates_length_of :password, :in => 6..20, :on => :create
+
+        validates :password, :confirmation => true
 
 		
-		
-
 	def password_changed?
 		!@new_password.blank?
 	end
@@ -37,5 +45,5 @@ class User < ActiveRecord::Base
 		end
 		
       return nil
-  end
+  	end
 end

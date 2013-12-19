@@ -1,11 +1,14 @@
 DoSomthIn::Application.routes.draw do
   
+  resources :comments
+
+
   root :to => 'application#index'
 
   resources :application
 
   resources :issues
-
+  
   resources :users
 
   # The priority is based upon order of creation:

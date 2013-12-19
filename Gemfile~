@@ -19,6 +19,9 @@ gem 'sqlite3'
 
 gem 'devise'
 
+gem 'acts_as_commentable_with_threading'
+
+gem 'time_difference'
 
 gem 'validates_timeliness'
  
