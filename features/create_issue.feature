@@ -4,9 +4,9 @@ Feature: Creating an Issue
 	So that I can discuss topics that are important to me and others,
 	I want to be able to create a new issue.
 
-Scenario:
-	Given that I have a user account
-		And that I am on the new issue page
+Background:
+	Given I have a user account
+		And I am on the new issue page
 Scenario:
 	When I fill in "Title" with "Alpha"
 		And I fill in "Description" with "Bravo"

@@ -5,8 +5,8 @@ Feature: Commenting on an issue
 	I want to be able to add comments to an issue.
 
 Background:
-	Given that I have a user account
-		And that I am on the issue page
+	Given I have a user account
+		And I am on the issue page
 		And the title of the issue is "Alpha"
 Scenario:
 	When I fill in "Comment" with "Delta"

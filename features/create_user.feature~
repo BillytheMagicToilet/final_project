@@ -1,7 +1,7 @@
 Feature: allow a visitor to create an account
 
-	As a user
-	So that I can interact with DoSomth.in and other users
+	As a user,
+	So that I can interact with DoSomth.in and other users,
 	I want to be able to create an account on the site
 
 Background: user is on the new user page
