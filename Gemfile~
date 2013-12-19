@@ -17,11 +17,13 @@ end
 
 gem 'sqlite3'
 
+gem 'nokogiri', '1.6.0'
+
 gem 'devise'
 
 gem 'acts_as_commentable_with_threading'
 
-gem 'time_difference'
+gem 'opinio'
 
 gem 'validates_timeliness'
  

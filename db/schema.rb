@@ -11,15 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131219014513) do
+ActiveRecord::Schema.define(:version => 20131219085123) do
+
+  create_table "comments", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "comment_id"
+    t.text     "body"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "issues", :force => true do |t|
     t.string   "title"
     t.text     "description"
     t.text     "goal"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
     t.integer  "user_id"
+    t.integer  "votes_count", :default => 0
   end
 
   create_table "users", :force => true do |t|
@@ -28,8 +37,8 @@ ActiveRecord::Schema.define(:version => 20131219014513) do
     t.string   "email"
     t.date     "bday"
     t.string   "location"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
     t.string   "password"
     t.datetime "last_login"
     t.string   "interests"
@@ -53,10 +62,10 @@ ActiveRecord::Schema.define(:version => 20131219014513) do
 
   create_table "votes", :force => true do |t|
     t.string   "type"
-    t.integer  "user"
-    t.integer  "issue"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "issue_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end
