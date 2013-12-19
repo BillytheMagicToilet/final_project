@@ -1,0 +1,62 @@
+<div class="row">
+	<div class="col-xs-12 col-sm-12 col-md-4 well well-sm col-md-offset-4">
+		<legend>Sign up!</legend>
+		<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => 'form'}) do |f| %>
+		<%= devise_error_messages! %>
+
+		<div class="row">
+			<div class="col-xs-6 col-md-6">
+				<%= f.text_field :first_name, :autofocus => true, :class => 'form-control', :placeholder => 'First Name' %>
+			</div>
+			<div class="col-xs-6 col-md-6">
+				<%= f.text_field :last_name, :class => 'form-control', :placeholder => 'Last Name' %>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12">
+				<%= f.text_field :location, :class => 'form-control', :placeholder => 'Your Location' %>
+			</div>
+		</div>
+
+		<br />
+
+		<div class="row">
+
+			<div class="col-md-12">
+				<label>Birth Date</label>
+				<br />
+				<%= f.date_select :bday, {:start_year => 1940, :use_short_month => true}, {:class => 'selectpicker'} %>
+			</div>
+
+		</div>
+
+		<br />
+
+		<div class="row">
+			<div class="col-md-12">
+				<%= f.email_field :email, :class => 'form-control', :placeholder => 'Your Email' %>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12">
+				<%= f.password_field :password, :class => 'form-control', :placeholder => 'Password' %>
+
+				<%= f.password_field :password_confirmation, :class => 'form-control', :placeholder => 'Confirm Password' %>
+			</div>
+		</div>
+
+		<br />
+		<br />
+
+		<%= f.submit "Sign up", :class => 'btn btn-lg btn-primary btn-block' %>
+
+		<% end %>
+
+		<hr />
+
+		<%= render "devise/shared/links" %>
+
+	</div>
+</div>

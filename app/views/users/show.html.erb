@@ -1,3 +1,5 @@
+<h1><%= @user.first_name %> <%= @user.last_name %></p>
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -11,11 +13,6 @@
 </p>
 
 <p>
-  <b>Email:</b>
-  <%= @user.email %>
-</p>
-
-<p>
   <b>Bday:</b>
   <%= @user.bday %>
 </p>
@@ -24,6 +21,15 @@
   <b>Location:</b>
   <%= @user.location %>
 </p>
+
+<p>
+  <b>Interests:</b>
+  <%= @user.interests %>
+</p>
+
+
+
+  <b>
 
 
 <%= link_to 'Edit', edit_user_path(@user) %> |

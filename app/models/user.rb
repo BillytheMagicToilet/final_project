@@ -1,33 +1,13 @@
-require 'bcrypt'
-
 class User < ActiveRecord::Base
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable, :confirmable
+
+  # Setup accessible (or protected) attributes for your model
+  attr_accessible :first_name, :last_name, :email, :bday, :location, :password, :password_confirmation, :remember_me, :encrypted_password
 	
-	attr_accessor :new_password, :new_password_confirmation
+	has_many :votes, :through => :issues
+	has_many :created_issues, :foreign_key => "user_id", :class_name => "Issue"
 
-	validates_confirmation_of :new_password, :if=>:password_changed?
-
-	before_save :hash_new_password, :if=>:password_changed?
-
-	def password_changed?
-		!@new_password.blank?
-	end
-
-	private
-
-	def hash_new_password
-		self.password = BCrypt::Password.create(@new_password)
-	end
-
-	def self.authenticate(email, password)
-
-		if user = User.find_by_email(email)
-
-			if BCrypt::Password.new(user.password).is_password? password
-
-				return user
-			end
-		end
-		
-      return nil
-  end
 end
