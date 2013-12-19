@@ -1,7 +1,7 @@
 Feature: Signing in to user
 
-	As a user,
-	So that I can interact with DoSomth.in and other users,
+	As a user
+	So that I can interact with DoSomth.in and other users
 	I want to be able to sign in to my user account on the site.
 
 Scenario:

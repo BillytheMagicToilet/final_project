@@ -2,20 +2,24 @@ require 'spec_helper'
 
 describe Issue do
   it "is invalid without a title" do
-    issue = Issue.new(description: "Nothing!", goal: "Nothing!")
+    issue = Issue.new(description: "A", goal: "A")
     issue.should_not be_valid
   end
   it "is invalid without a description" do
-    issue = Issue.new(title: "Trainspotting", goal: "Nothing!")
+    issue = Issue.new(title: "A", goal: "A")
     issue.should_not be_valid
   end
   it "is invalid without a goal" do
-    issue = Issue.new(title: "Trainspotting", description: "Nothing!")
+    issue = Issue.new(title: "A", description: "A")
     issue.should_not be_valid
   end
   it "has a title that matches 'Trainspotting'" do
     issue = Issue.new(title: "Trainspotting")
     issue.title.should match("Trainspotting")
+  end
+  it "is valid" do
+    issue = Issue.new(title: "A", description: "A", goal: "A")
+    issue.should be_valid
   end
   it "has 'a' as a higher trending issue than 'b'"do
     a = Issue.new(title: "A", description: "A", goal: "A")

@@ -3,9 +3,9 @@
 	<ul class="nav nav-pills pull-right">
 
 		<% if user_signed_in? %>
-			<li><%= link_to "New issue", new_issue_path &><br />
+			<li><%= link_to "New issue", new_issue_path %><br />
 		<% end %>
-		<li class="active"><a href="#">Home</a></li>
+		<li class="active"><a href="#application">Home</a></li>
 		<% if user_signed_in? %>
 			<li><%= link_to "Sign out", destroy_user_session_path %><br />
 			<li><%= link_to "Dashboard", dashboard_path %><br /> 
