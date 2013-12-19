@@ -1,8 +1,7 @@
 class Issue < ActiveRecord::Base
 	validates_presence_of :title, :description, :goal
 	belongs_to :user
-	has_many :votes
-	has_many :comments
+	has_many :votes, :comments
 	def self.Trending
 		issues = Issue.all
 		valued = issues.map {|i| [i, i.trending_heuristic]}

@@ -59,9 +59,8 @@ class IssuesController < ApplicationController
   end
   def downvote
     @issue = Issue.find(params[:id])
-    @issue = Issue.votes.create
+    @issue = Issue.find(params[:id])
     redirect_to(issues_path)
-  end
   # PUT /issues/1
   # PUT /issues/1.json
   def update
