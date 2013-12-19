@@ -8,7 +8,7 @@ DoSomthIn::Application.routes.draw do
 
   resources :issues
 
-  resources :users
+  get 'user/dashboard' => 'users#dashboard', :as => :dashboard
 
   resources :comments
 
