@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_filter :authenticate_user!, :except => []
 
+  # GET /users/dashboard
   def dashboard
     @user = current_user
     @my_issues = @user.created_issues
