@@ -1,7 +1,6 @@
 DoSomthIn::Application.routes.draw do
-  
-  resources :comments
 
+  devise_for :user
 
   root :to => 'application#index'
 
