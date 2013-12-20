@@ -1,12 +1,30 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-md-12">
+    <div class="navbar navbar-default">
 
-<p>
-  <h1><%= @issue.title %>
-</p>
+      <div class="navbar-header navbar-brand"><%= link_to issues_path do %><span class="glyphicon glyphicon-chevron-left"></span> Back to Issues<% end %></div>
 
-  By: <%= @issue.owner_name %>
-</p>
+      <% if user_signed_in? %>
+      	<div class="ui-group-buttons pull-right">
+			<%= link_to issue_upvote_path, :class => 'btn btn-success', :id => 'upvote-button', :issue_id => @issue.id do %><span class="glyphicon glyphicon-thumbs-up"> Yay</span><% end %>
+			<div class="or"></div>
+			<%= link_to issue_downvote_path, :class => 'btn btn-success', :id => 'downvote-button', :issue_id => @issue.id do %><span class="glyphicon glyphicon-thumbs-down"> Nay</span><% end %>
+		</div>
+	<% end %>
 
+    </div>
+
+  </div>
+</div>
+
+<br />
+
+
+<div class="h2"><%= @issue.title%>
+	<small class="issue-meta pull-right">By: <%= @issue.owner_name %> Posted: <%= @issue.created_at %></small>
+</div>
+
+<hr />
 
   <b>Description:</b>
   <%= @issue.description %>
@@ -19,8 +37,9 @@
 
 <p>
   <b>Comments:</b>
-<% if user_signedin? %>
+<% if user_signed_in? %>
   <%= text.area :comment %>
+ <% end %>
 
 <%= link_to 'Edit', edit_issue_path(@issue) %> |
 <%= link_to 'Back', issues_path %>

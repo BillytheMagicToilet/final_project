@@ -5,3 +5,14 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+require 'factory_girl'
+require 'faker'
+Dir[Rails.root.join("test/factories/*.rb")].each {|f| require f}
+
+FactoryGirl.create(:issue_with_votes)
+
+FactoryGirl.create(:issue_with_votes)
+
+ issues = Issue.where(:user == nil)
+
+ issues.each {|i| i.user = User.all.sample; i.save }

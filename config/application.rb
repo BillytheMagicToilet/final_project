@@ -35,6 +35,8 @@ module DoSomthIn
 
     config.assets.paths << Rails.root.join("app", "vendor", "assets", "images")
 
+    config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
+
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
 

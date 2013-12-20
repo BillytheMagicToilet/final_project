@@ -2,9 +2,12 @@ DoSomthIn::Application.routes.draw do
 
   devise_for :user
 
-  root :to => 'application#index'
+  root :to => 'issues#index'
 
   resources :application
+
+  get 'issues/:issue_id/upvote' => 'issues#upvote', :as => :issue_upvote
+  get 'issues/:issue_id/downvote' => 'issues#downvote', :as => :issue_downvote
 
   resources :issues
 

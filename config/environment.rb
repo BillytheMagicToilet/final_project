@@ -14,7 +14,7 @@ ActionMailer::Base.smtp_settings =
   :port => 25,
   :domain => "dosomth.in",
   :authentication => :login,
-  :user_name => "dont-reply@dosomth.in",
-  :password => "Qx0q9JHh1p3P4YkUz57N",
+  :user_name => "dont-reply2@dosomth.in",
+  :password => "vkE(lpL1",
   :enable_starttls_auto => false
 }

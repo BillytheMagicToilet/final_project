@@ -1,29 +1,89 @@
-<h1>Listing issues</h1>
+<div class="row">
+  <div class="col-md-12">
+    <div class="navbar navbar-default">
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Author</th>
-    <th>Description</th>
-    <th>Goal</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+      <div class="navbar-header navbar-brand">Issues</div>
 
-<% @issues.each do |issue| %>
-  <tr>
-    <td><%= issue.title %></td>
-    <td><%= issue.owner_name %></td>
-    <td><%= issue.description %></td>
-    <td><%= issue.goal %></td>
-    <td><%= link_to 'Show', issue %></td>
-    <td><%= link_to 'Edit', edit_issue_path(issue) %></td>
-    <td><%= link_to 'Destroy', issue, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
+      <%= link_to new_issue_path, :class => 'btn btn-success', :id => 'new-issue-nav-button' do %>
+        <h3><span class="glyphicon glyphicon-plus"></span> New Issue</h3>
+      <% end %>
+
+      <ul class="nav navbar-nav pull-right">
+        <li><%= link_to 'New', issues_path %></li>
+        <li><%= link_to 'Trending', issues_path, order: 'Trending' %></li>
+        <li><%= link_to 'Top', issues_path, order: 'Top' %></li>
+      </ul>
+
+    </div>
+
+  </div>
+</div>
 
 <br />
 
-<%= link_to 'New Issue', new_issue_path %>
+
+<% @issues.each do |issue| %>
+<div class="row">
+  <div class="col-md-12">
+    <div class="well well-sm">
+      <div class="row">
+<!--         <div class="col-xs-3 col-md-3 text-center">
+          <img src="http://bootsnipp.com/apple-touch-icon-114x114-precomposed.png" alt="bootsnipp"
+          class="img-rounded img-responsive" />
+        </div> -->
+        <div class="col-md-12 section-box">
+
+          <div class="h2"><%= link_to issue.title, issue %>
+          <small class="issue-meta pull-right">By: <%= issue.owner_name %> Posted: <%= issue.created_at %></small>
+          </div>
+          
+          <p class="issue-excerpt text-primary"><b>Goal: </b><%= truncate(issue.goal, length:100) %></p>
+          <p class="issue-excerpt"><%= truncate(issue.description, length:250) { link_to "More", issue } %></p>
+          
+          <hr />
+
+          <div class="deep-well">
+            <div class="rating-desc">
+
+              <div class="col-md-6">
+
+                <h5>Yay Votes</h5>
+
+                <div class="col-md-9"><div class="progress"><% up_percentage = up_vote_percentage(issue) %>
+                  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<%= up_percentage %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= up_percentage %>%">
+                    <span class="sr-only"><%= up_percentage %>% Yay Votes</span>
+                  </div>
+                </div></div>
+
+                <div class="col-md-3">
+                  <%= up_percentage %>% Yay <small>(<%= issue.up_vote_count %>)</small>
+                </div>
+
+              </div>
+
+              <div class="col-md-6">
+
+                <h5>Nay Votes</h5>
+
+                <div class="col-md-9"><div class="progress"><% down_percentage = down_vote_percentage(issue) %>
+                  <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="<%= down_percentage %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= down_percentage %>%">
+                    <span class="sr-only"><%= down_percentage %>% Nay Votes</span>
+                  </div>
+                </div></div>
+
+                <div class="col-md-3">
+                  <%= down_percentage %>% Nay <small>(<%= issue.down_vote_count %>)</small>
+                </div>
+
+              </div>
+            </div>
+            
+            <div class="clearfix"></div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
